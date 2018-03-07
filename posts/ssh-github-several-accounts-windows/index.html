@@ -92,7 +92,7 @@
 To check that your remote is well configured: <code>git remote -v</code></p>
 </li>
 <li>
-<p>Now, you will encounter issues if you try to push to the remote repository because the system uses random keys and may try to identify on repository2 with repository1's credentials. The correct way to tackle this seems to be configuring the config file you can find or create at <code>C:\Users\&lt;user&gt;\.ssh</code>. Below a thread discussing the issue. Unfortunately, I never could get it to <a href="https://stackoverflow.com/questions/7927750/specify-an-ssh-key-for-git-push-for-a-given-domain">work</a>.</p>
+<p>Now, you will encounter issues if you try to push to the remote repository because the system uses random keys and may try to identify on repository2 with repository1's credentials. The correct way to tackle this seems to be configuring the config file you can find or create at <code>C:\Users\&lt;user&gt;\.ssh</code>. <a href="https://stackoverflow.com/questions/7927750/specify-an-ssh-key-for-git-push-for-a-given-domain">Here</a>. a thread discussing the issue. Unfortunately, I never could get it to work.</p>
 </li>
 <li>
 <p>The workaround I found is to rename the id_rsa files before my push script. Not perfect by any means but this is the easiest method I could find to make it work on Windows!</p>
