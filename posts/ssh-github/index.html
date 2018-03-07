@@ -3,7 +3,7 @@
 <head>
         <meta charset="utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Misc. - SSH Github</title>
+        <title>Misc. - Using Ssh with Github on Windows</title>
         <meta name="description" content="">
         <link rel="stylesheet" href="https://wickedsloth.github.io/theme/css/main.css" />
         <link rel="stylesheet" href="https://wickedsloth.github.io/theme/css/pygment.css" />
@@ -56,7 +56,7 @@
         <article class="article">
             <header>
                 <div class="meta-data">
-                    <h3><a href="https://wickedsloth.github.io/posts/ssh-github/" >SSH Github</a></h3>
+                    <h3><a href="https://wickedsloth.github.io/posts/ssh-github/" >Using Ssh  with Github on Windows</a></h3>
 
                     <p class="author">
                         <time datetime="2018-03-05T16:00:00-05:00" >Mon 05 March 2018</time>
@@ -74,8 +74,41 @@
             </header>
 
             <div class="entry-content" id="info">
-      <p>How to maintain several repositories and access them easily</p>
-<p>https://stackoverflow.com/questions/7927750/specify-an-ssh-key-for-git-push-for-a-given-domain</p>
+      <p>Pushing to several accounts on Github. Chances are that you need to fumble around with the credential manager (in Windows). Now, I found that ssh is a better way to tackle the issue. Below the steps to put ssh in place.</p>
+<ol>
+<li>
+<p>Follow the steps described on <a href="https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/">Github</a> to generate the keys</p>
+</li>
+<li>
+<p>If you have several accounts, generate one key per site. From now on, we will assume there are two accounts: account1 and account2. You can name the key files (stored by default in <code>C:\Users\&lt;user&gt;\.ssh</code> as you wish but we will call them <code>id_rsa1 id_rsa1.pub id_rsa2 id_rsa2.pub</code> </p>
+</li>
+<li>
+<p>Configure Github with the public keys you <a href="https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/">generated</a></p>
+</li>
+<li>
+<p>Configure the git repository to use ssh authentification<br>
+<code>git remote set-url origin git@github.com:&lt;user&gt;/&lt;repository1&gt;.github.io.git</code><br>
+<code>git remote set-url origin git@github.com:&lt;user&gt;/&lt;repository2&gt;.github.io.git</code><br>
+To check that your remote is well configured: <code>git remote -v</code></p>
+</li>
+<li>
+<p>Now, you will encounter issues if you try to push to the remote repository because the system uses random keys and may try to identify on repository2 with repository1's credentials. The correct way to tackle this seems to be configuring the config file you can find or create at <code>C:\Users\&lt;user&gt;\.ssh</code>. Below a thread discussing the issue. Unfortunately, I never could get it to <a href="https://stackoverflow.com/questions/7927750/specify-an-ssh-key-for-git-push-for-a-given-domain">work</a>.</p>
+</li>
+<li>
+<p>The workaround I found is to rename the id_rsa files before my push script. Not perfect by any means but this is the easiest method I could find to make it work on Windows!</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span>copy /Y C:\Users\&lt;user&gt;\.ssh\id_rsa2 C:\Users\&lt;user&gt;\.ssh\id_rsa
+copy /Y C:\Users\&lt;user&gt;\.ssh\id_rsa2.pub C:\Users\&lt;user&gt;\.ssh\id_rsa.pub
+</pre></div>
+
+
+<p>To test for the ssh connection: <code>ssh -vT git@github.com</code></p>
+<p>Other userful links on the matter:</p>
+<ul>
+<li><a href="">https://help.github.com/articles/connecting-to-github-with-ssh/</a></li>
+<li><a href="">http://guides.beanstalkapp.com/version-control/git-on-windows.html</a></li>
+</ul>
     </div><!-- /.entry-content -->
                 <footer>
              <ul class="tags">
