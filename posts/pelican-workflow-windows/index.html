@@ -3,7 +3,7 @@
 <head>
         <meta charset="utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Misc. - Arşiv</title>
+        <title>Misc. - Pelican Workflow on Windows</title>
         <meta name="description" content="">
         <link rel="stylesheet" href="https://wickedsloth.github.io/theme/css/main.css" />
         <link rel="stylesheet" href="https://wickedsloth.github.io/theme/css/pygment.css" />
@@ -52,35 +52,77 @@
                 </ul>
 		</nav>
 	</section>
-	<section class="sub-page container">
-		<article class="article">
-			<header>
-				<div class="meta-data">
-					<h3>Archives for Misc.</h3>
-				</div>
-			</header>
-			<div class="entry-content" id="info">
-				<dl>
-					<dt>Thu 08 March 2018</dt>
-					<dd><a href="https://wickedsloth.github.io/posts/pelican-workflow-windows/">Pelican Workflow on Windows</a></dd>
-					<dt>Wed 07 March 2018</dt>
-					<dd><a href="https://wickedsloth.github.io/posts/ssh-github-several-accounts-windows/">Using Ssh with Several Github Accounts on Windows</a></dd>
-					<dt>Tue 06 March 2018</dt>
-					<dd><a href="https://wickedsloth.github.io/posts/wants/">What do you want?</a></dd>
-					<dt>Tue 06 March 2018</dt>
-					<dd><a href="https://wickedsloth.github.io/posts/dye-with-care/">Dye With Care</a></dd>
-					<dt>Tue 06 March 2018</dt>
-					<dd><a href="https://wickedsloth.github.io/posts/chinese-history/">(Snippets) of Chinese History</a></dd>
-					<dt>Mon 05 March 2018</dt>
-					<dd><a href="https://wickedsloth.github.io/posts/hard-choices/">Choices</a></dd>
-					<dt>Mon 05 March 2018</dt>
-					<dd><a href="https://wickedsloth.github.io/posts/posture/">Posture</a></dd>
-					<dt>Mon 05 March 2018</dt>
-					<dd><a href="https://wickedsloth.github.io/posts/fruit-pie/">Fruit Pie</a></dd>
-				</dl>
-			</div>
-		</article>
-	</section>
+    <section class="sub-page container">
+        <article class="article">
+            <header>
+                <div class="meta-data">
+                    <h3><a href="https://wickedsloth.github.io/posts/pelican-workflow-windows/" >Pelican Workflow on Windows</a></h3>
+
+                    <p class="author">
+                        <time datetime="2018-03-08T16:00:00-05:00" >Thu 08 March 2018</time>
+                    </p>
+
+                    <div class="socbtn">
+                        <span class="share"><i class="icon-share"></i></span>
+                        <div class="popup">
+                            <a class="share--googleplus" href="#"><i class="icon-gplus-circled"></i></a>
+                            <a class="share--twitter" href="#"><i class="icon-twitter-circled"></i></a>
+                            <a class="share--facebook" href="#"><i class="icon-facebook-circled"></i></span></a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="entry-content" id="info">
+      <p>Make isn't directly available on Windows. Batch files are one way to automatize build and upload. Below an example to upload to compile the website and upload to Github.</p>
+<p><code>build.bat</code></p>
+<div class="highlight"><pre><span></span>:: Using relative urls facilitates local testing
+pelican --relative-urls
+
+start output\index.html
+</pre></div>
+
+
+<p><code>upload.bat</code><br>
+Use as: <code>upload "message"</code> eg. <code>upload "new menu"</code></p>
+<div class="highlight"><pre><span></span>pelican
+
+:: RSA key swapping (see my post regarding how to manage several Github accounts
+copy /Y C:\Users\&lt;user&gt;\.ssh\id_rsa1 C:\Users\&lt;user&gt;\.ssh\id_rsa
+copy /Y C:\Users\&lt;user&gt;\.ssh\id_rsa1.pub C:\Users\&lt;user&gt;\.ssh\id_rsa.pub
+
+cd output
+git add --all
+git commit -m &quot;%~1&quot;
+git push -u origin master
+cd..
+
+start &lt;user&gt;.github.io
+</pre></div>
+    </div><!-- /.entry-content -->
+                <footer>
+             <ul class="tags">
+					<li><a class="tag" href="https://wickedsloth.github.io/tag/geek.html">geek</a></li>
+			 </ul>
+            </footer>
+    <div class="comments">
+      <h2>Comments</h2>
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+        var disqus_shortname = 'misc-2';
+        var disqus_identifier = 'https://wickedsloth.github.io/posts/pelican-workflow-windows/';
+        var disqus_url = 'https://wickedsloth.github.io/posts/pelican-workflow-windows/';
+        (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//misc-2.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the comments.</noscript>
+    </div>
+
+  </article>
+</section>
     <footer>
         <div class="inner">
             <div class="container">
