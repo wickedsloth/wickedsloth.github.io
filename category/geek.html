@@ -44,11 +44,11 @@
     <section class="container">
         <nav class="nav">
             <ul>
-                    <li><a href="https://wickedsloth.github.io/category/aphorisms.html">Aphorisms</a></li>
                     <li><a href="https://wickedsloth.github.io/category/body.html">Body</a></li>
                     <li><a href="https://wickedsloth.github.io/category/cuisine.html">Cuisine</a></li>
                     <li><a href="https://wickedsloth.github.io/category/geek.html">Geek</a></li>
                     <li><a href="https://wickedsloth.github.io/category/history.html">History</a></li>
+                    <li><a href="https://wickedsloth.github.io/category/thoughts.html">Thoughts</a></li>
                 </ul>
 		</nav>
 	</section>
@@ -87,6 +87,55 @@ start output\index.html
 <p><code>upload.bat</code><br>
 Use as: <code>upload "message"</code> eg …</p>
                 <a class="button-text" href="https://wickedsloth.github.io/posts/pelican-workflow-windows/">Read</a>
+                </div><!-- /.entry-content -->
+            <footer>
+             <ul class="tags">
+					<li><a class="tag" href="https://wickedsloth.github.io/tag/geek.html">geek</a></li>
+			 </ul>
+            </footer>
+            </article>
+</li>
+  <!-- /#posts-list -->
+                </section><!-- /#content -->
+
+    <section class="main container">
+            <li>
+        <article class="article">
+            <header>
+                <div class="meta-data">
+                    <h3><a href="https://wickedsloth.github.io/posts/git-revert/" >GIT revert</a></h3>
+
+                    <p class="author">
+                        <time datetime="2018-03-08T10:00:00-05:00" >Thu 08 March 2018</time>
+                    </p>
+
+                    <div class="socbtn">
+                        <span class="share"><i class="icon-share"></i></span>
+                        <div class="popup">
+                            <a class="share--googleplus" href="#"><i class="icon-gplus-circled"></i></a>
+                            <a class="share--twitter" href="#"><i class="icon-twitter-circled"></i></a>
+                            <a class="share--facebook" href="#"><i class="icon-facebook-circled"></i></span></a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="entry-content" id="info">
+                <p>Extracts from the discussion <a href="https://stackoverflow.com/questions/4114095/how-to-revert-git-repository-to-a-previous-commit">here</a></p>
+<p>Temporarily switch to a different commit</p>
+<div class="highlight"><pre><span></span># This will detach your HEAD, that is, leave you with no branch checked out:
+git checkout 0d1d7fc32
+</pre></div>
+
+
+<p>To get back to current commit</p>
+<div class="highlight"><pre><span></span>git checkout master
+</pre></div>
+
+
+<p>Undo published commits with new commits</p>
+<div class="highlight"><pre><span></span>#Revert to previous commit
+git revert --no-commit …</pre></div>
+                <a class="button-text" href="https://wickedsloth.github.io/posts/git-revert/">Read</a>
                 </div><!-- /.entry-content -->
             <footer>
              <ul class="tags">

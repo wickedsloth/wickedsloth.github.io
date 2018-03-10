@@ -3,7 +3,7 @@
 <head>
         <meta charset="utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Misc. - Cuisine</title>
+        <title>Misc. - GIT revert</title>
         <meta name="description" content="">
         <link rel="stylesheet" href="https://wickedsloth.github.io/theme/css/main.css" />
         <link rel="stylesheet" href="https://wickedsloth.github.io/theme/css/pygment.css" />
@@ -52,16 +52,14 @@
                 </ul>
 		</nav>
 	</section>
-
-    <section class="main container">
-            <li>
+    <section class="sub-page container">
         <article class="article">
             <header>
                 <div class="meta-data">
-                    <h3><a href="https://wickedsloth.github.io/posts/fruit-pie/" >Fruit Pie</a></h3>
+                    <h3><a href="https://wickedsloth.github.io/posts/git-revert/" >GIT revert</a></h3>
 
                     <p class="author">
-                        <time datetime="2018-03-05T16:00:00-05:00" >Mon 05 March 2018</time>
+                        <time datetime="2018-03-08T10:00:00-05:00" >Thu 08 March 2018</time>
                     </p>
 
                     <div class="socbtn">
@@ -74,37 +72,71 @@
                     </div>
                 </div>
             </header>
+
             <div class="entry-content" id="info">
-                <p>This is a ultra simple, minimalist and fat free fruit pie recipe. </p>
-<p>Ingredients:</p>
-<ul>
-<li>3 eggs</li>
-<li>50 g sugar</li>
-<li>150 g flour</li>
-<li>Fruit (2 sliced apples or blueberries for eg.)</li>
-</ul>
-<p>Preparation:</p>
-<ol>
-<li>Separate egg whites and yolk.</li>
-<li>Mix the yolk with the sugar and flour. Add enough water to allow mixing. </li>
-<li>Gently …</li></ol>
-                <a class="button-text" href="https://wickedsloth.github.io/posts/fruit-pie/">Read</a>
-                </div><!-- /.entry-content -->
-            <footer>
+      <p>Extracts from the discussion <a href="https://stackoverflow.com/questions/4114095/how-to-revert-git-repository-to-a-previous-commit">here</a></p>
+<p>Temporarily switch to a different commit</p>
+<div class="highlight"><pre><span></span># This will detach your HEAD, that is, leave you with no branch checked out:
+git checkout 0d1d7fc32
+</pre></div>
+
+
+<p>To get back to current commit</p>
+<div class="highlight"><pre><span></span>git checkout master
+</pre></div>
+
+
+<p>Undo published commits with new commits</p>
+<div class="highlight"><pre><span></span>#Revert to previous commit
+git revert --no-commit 0766c053..HEAD
+
+# This will create three separate revert commits:
+git revert a867b4af 25eee4ca 0766c053
+
+# It also takes ranges. This will revert the last two commits:
+git revert HEAD~2..HEAD
+
+#Similarly, you can revert a range of commits using commit hashes:
+git revert a867b4af..0766c053 
+
+# Reverting a merge commit
+git revert -m 1 &lt;merge_commit_sha&gt;
+
+# To get just one, you could use `rebase -i` to squash them afterwards
+# Or, you could do it manually (be sure to do this at top level of the repo)
+# get your index and work tree into the desired state, without changing HEAD:
+git checkout 0d1d7fc32 .
+
+# Then commit. Be sure and write a good message describing what you just did
+git commit
+</pre></div>
+
+
+<p>The --no-commit flag lets git revert all the commits at once- otherwise you'll be prompted for a message for each commit in the range, littering your history with unnecessary new commits.</p>
+    </div><!-- /.entry-content -->
+                <footer>
              <ul class="tags">
-					<li><a class="tag" href="https://wickedsloth.github.io/tag/cuisine.html">cuisine</a></li>
+					<li><a class="tag" href="https://wickedsloth.github.io/tag/geek.html">geek</a></li>
 			 </ul>
             </footer>
-            </article>
-</li>
-  <!-- /#posts-list -->
-                </section><!-- /#content -->
-   <section>
-        <nav role="navigation">
-            <ul class="pagination">
-            </ul>
-        </nav>
-    </section>
+    <div class="comments">
+      <h2>Comments</h2>
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+        var disqus_shortname = 'misc-2';
+        var disqus_identifier = 'https://wickedsloth.github.io/posts/git-revert/';
+        var disqus_url = 'https://wickedsloth.github.io/posts/git-revert/';
+        (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//misc-2.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the comments.</noscript>
+    </div>
+
+  </article>
+</section>
     <footer>
         <div class="inner">
             <div class="container">

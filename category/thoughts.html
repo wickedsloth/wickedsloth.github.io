@@ -3,7 +3,7 @@
 <head>
         <meta charset="utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Misc. - geek</title>
+        <title>Misc. - Thoughts</title>
         <meta name="description" content="">
         <link rel="stylesheet" href="https://wickedsloth.github.io/theme/css/main.css" />
         <link rel="stylesheet" href="https://wickedsloth.github.io/theme/css/pygment.css" />
@@ -58,10 +58,10 @@
         <article class="article">
             <header>
                 <div class="meta-data">
-                    <h3><a href="https://wickedsloth.github.io/posts/pelican-workflow-windows/" >Pelican Workflow on Windows</a></h3>
+                    <h3><a href="https://wickedsloth.github.io/posts/brain-mechanics/" >Brain Mechanics</a></h3>
 
                     <p class="author">
-                        <time datetime="2018-03-08T16:00:00-05:00" >Thu 08 March 2018</time>
+                        <time datetime="2018-03-09T16:00:00-05:00" >Fri 09 March 2018</time>
                     </p>
 
                     <div class="socbtn">
@@ -75,22 +75,18 @@
                 </div>
             </header>
             <div class="entry-content" id="info">
-                <p>Make isn't directly available on Windows. Batch files are one way to automatize build and upload. Below an example to upload to compile the website and upload to Github.</p>
-<p><code>build.bat</code></p>
-<div class="highlight"><pre><span></span>:: Using relative urls facilitates local testing
-pelican --relative-urls
-
-start output\index.html
-</pre></div>
-
-
-<p><code>upload.bat</code><br>
-Use as: <code>upload "message"</code> eg …</p>
-                <a class="button-text" href="https://wickedsloth.github.io/posts/pelican-workflow-windows/">Read</a>
+                <p>From the reading of "Brain at Work" by David Rock which I recommend.</p>
+<h2>Facts about the brain</h2>
+<ul>
+<li>Prefrontal cortex can hold a surprisingly few numbers of information at the same time</li>
+<li>The brain can only focus on a single task at a time</li>
+</ul>
+<p>Hence, one needs to be using its …</p>
+                <a class="button-text" href="https://wickedsloth.github.io/posts/brain-mechanics/">Read</a>
                 </div><!-- /.entry-content -->
             <footer>
              <ul class="tags">
-					<li><a class="tag" href="https://wickedsloth.github.io/tag/geek.html">geek</a></li>
+					<li><a class="tag" href="https://wickedsloth.github.io/tag/books.html">books</a></li>
 			 </ul>
             </footer>
             </article>
@@ -103,10 +99,10 @@ Use as: <code>upload "message"</code> eg …</p>
         <article class="article">
             <header>
                 <div class="meta-data">
-                    <h3><a href="https://wickedsloth.github.io/posts/git-revert/" >GIT revert</a></h3>
+                    <h3><a href="https://wickedsloth.github.io/posts/wants/" >What do you want?</a></h3>
 
                     <p class="author">
-                        <time datetime="2018-03-08T10:00:00-05:00" >Thu 08 March 2018</time>
+                        <time datetime="2018-03-06T16:00:00-05:00" >Tue 06 March 2018</time>
                     </p>
 
                     <div class="socbtn">
@@ -120,26 +116,17 @@ Use as: <code>upload "message"</code> eg …</p>
                 </div>
             </header>
             <div class="entry-content" id="info">
-                <p>Extracts from the discussion <a href="https://stackoverflow.com/questions/4114095/how-to-revert-git-repository-to-a-previous-commit">here</a></p>
-<p>Temporarily switch to a different commit</p>
-<div class="highlight"><pre><span></span># This will detach your HEAD, that is, leave you with no branch checked out:
-git checkout 0d1d7fc32
-</pre></div>
-
-
-<p>To get back to current commit</p>
-<div class="highlight"><pre><span></span>git checkout master
-</pre></div>
-
-
-<p>Undo published commits with new commits</p>
-<div class="highlight"><pre><span></span>#Revert to previous commit
-git revert --no-commit …</pre></div>
-                <a class="button-text" href="https://wickedsloth.github.io/posts/git-revert/">Read</a>
+                <blockquote>
+<p>Why so scrawny, cat?<br>
+Starving for fat fish or mice...<br>
+Or backyard love?</p>
+</blockquote>
+<p>Matsuo Bashō, Japanese Haiku</p>
+                <a class="button-text" href="https://wickedsloth.github.io/posts/wants/">Read</a>
                 </div><!-- /.entry-content -->
             <footer>
              <ul class="tags">
-					<li><a class="tag" href="https://wickedsloth.github.io/tag/geek.html">geek</a></li>
+					<li><a class="tag" href="https://wickedsloth.github.io/tag/aphorisms.html">aphorisms</a></li>
 			 </ul>
             </footer>
             </article>
@@ -152,10 +139,10 @@ git revert --no-commit …</pre></div>
         <article class="article">
             <header>
                 <div class="meta-data">
-                    <h3><a href="https://wickedsloth.github.io/posts/ssh-github-several-accounts-windows/" >Using Ssh with Several Github Accounts on Windows</a></h3>
+                    <h3><a href="https://wickedsloth.github.io/posts/dye-with-care/" >Dye With Care</a></h3>
 
                     <p class="author">
-                        <time datetime="2018-03-07T16:00:00-05:00" >Wed 07 March 2018</time>
+                        <time datetime="2018-03-06T16:00:00-05:00" >Tue 06 March 2018</time>
                     </p>
 
                     <div class="socbtn">
@@ -169,15 +156,53 @@ git revert --no-commit …</pre></div>
                 </div>
             </header>
             <div class="entry-content" id="info">
-                <p>Pushing to several accounts on Github (for example several Github Pages websites). Chances are that you need to fumble around with the credential manager (in Windows). I found that ssh authentication is a better way to tackle the issue. Below the steps to put ssh in place.</p>
-<ol>
-<li>
-<p>Follow the steps …</p></li></ol>
-                <a class="button-text" href="https://wickedsloth.github.io/posts/ssh-github-several-accounts-windows/">Read</a>
+                <blockquote>
+<p>The soul becomes dyed with the color of its thoughts. </p>
+</blockquote>
+<p>Marcus Aurelius</p>
+                <a class="button-text" href="https://wickedsloth.github.io/posts/dye-with-care/">Read</a>
                 </div><!-- /.entry-content -->
             <footer>
              <ul class="tags">
-					<li><a class="tag" href="https://wickedsloth.github.io/tag/geek.html">geek</a></li>
+					<li><a class="tag" href="https://wickedsloth.github.io/tag/aphorisms.html">aphorisms</a></li>
+			 </ul>
+            </footer>
+            </article>
+</li>
+  <!-- /#posts-list -->
+                </section><!-- /#content -->
+
+    <section class="main container">
+            <li>
+        <article class="article">
+            <header>
+                <div class="meta-data">
+                    <h3><a href="https://wickedsloth.github.io/posts/hard-choices/" >Choices</a></h3>
+
+                    <p class="author">
+                        <time datetime="2018-03-05T16:00:00-05:00" >Mon 05 March 2018</time>
+                    </p>
+
+                    <div class="socbtn">
+                        <span class="share"><i class="icon-share"></i></span>
+                        <div class="popup">
+                            <a class="share--googleplus" href="#"><i class="icon-gplus-circled"></i></a>
+                            <a class="share--twitter" href="#"><i class="icon-twitter-circled"></i></a>
+                            <a class="share--facebook" href="#"><i class="icon-facebook-circled"></i></span></a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="entry-content" id="info">
+                <blockquote>
+<p>Hard choices, easy life. Easy choices, hard life. </p>
+</blockquote>
+<p>Jerzy Gregorek</p>
+                <a class="button-text" href="https://wickedsloth.github.io/posts/hard-choices/">Read</a>
+                </div><!-- /.entry-content -->
+            <footer>
+             <ul class="tags">
+					<li><a class="tag" href="https://wickedsloth.github.io/tag/aphorisms.html">aphorisms</a></li>
 			 </ul>
             </footer>
             </article>
